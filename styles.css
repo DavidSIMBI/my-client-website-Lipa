@@ -200,15 +200,17 @@ h3 {
 }
 
 .form-section {
-    max-width: 680px;
-    padding: 2rem;
+    max-width: 540px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1.6rem;
     border-color: #cbd9df;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(23, 50, 77, 0.1);
+    box-shadow: 0 6px 16px rgba(23, 50, 77, 0.09);
 }
 
 .form-group {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.1rem;
 }
 
 .form-section label {
@@ -239,6 +241,7 @@ h3 {
 }
 
 .form-section textarea {
+    min-height: 130px;
     resize: vertical;
 }
 
@@ -282,6 +285,7 @@ h3 {
     }
 
     .form-section {
-        padding: 1.35rem;
+        max-width: none;
+        padding: 1.25rem;
     }
 }
