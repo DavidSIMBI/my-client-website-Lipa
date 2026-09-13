@@ -7,8 +7,10 @@
     --muted: #5d6b72;
     --white: #ffffff;
     --border: #d6e0e5;
+    --focus: #f0b429;
 }
 
+/* Base styles: designed for small screens first. */
 * {
     box-sizing: border-box;
 }
@@ -21,11 +23,47 @@ body {
     line-height: 1.6;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .container {
     width: min(100% - 2rem, 960px);
     margin: 0 auto;
 }
 
+h1,
+h2,
+h3 {
+    color: var(--navy);
+    line-height: 1.2;
+}
+
+h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 8vw, 3.4rem);
+}
+
+h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+}
+
+h3 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+}
+
+/* Header and navigation */
 .site-header {
     background: var(--white);
     border-bottom: 1px solid var(--border);
@@ -33,10 +71,10 @@ body {
 
 .header-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    min-height: 72px;
+    gap: 0.65rem;
+    padding: 1rem 0;
 }
 
 .brand {
@@ -52,7 +90,9 @@ body {
 
 .nav-list {
     display: flex;
-    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -60,7 +100,7 @@ body {
 
 .nav-list a {
     display: block;
-    padding: 0.45rem 0.7rem;
+    padding: 0.55rem 0.75rem;
     color: var(--navy);
     font-weight: 600;
     text-decoration: none;
@@ -74,13 +114,17 @@ body {
     text-underline-offset: 0.25rem;
 }
 
-.hero {
-    padding: 5rem 0;
-    color: var(--white);
-    background: linear-gradient(135deg, var(--navy), var(--blue));
+/* Shared content and components */
+.section,
+.page-content {
+    padding-top: 2.5rem;
 }
 
-.hero-content {
+.page-content {
+    padding-bottom: 2.5rem;
+}
+
+.page-intro {
     max-width: 700px;
 }
 
@@ -93,159 +137,16 @@ body {
     text-transform: uppercase;
 }
 
-.hero .eyebrow {
-    color: #aee6c1;
-}
-
-h1,
-h2,
-h3 {
-    color: var(--navy);
-    line-height: 1.2;
-}
-
-h1 {
-    margin: 0 0 1rem;
-    font-size: clamp(2rem, 5vw, 3.4rem);
-}
-
-.hero h1 {
-    color: var(--white);
-}
-
-h2 {
-    margin: 0 0 1rem;
-    font-size: 1.7rem;
-}
-
-h3 {
-    margin-top: 0;
-    font-size: 1.15rem;
-}
-
-.hero-text {
-    max-width: 610px;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-}
-
-.home-page .hero {
-    padding: 5.5rem 0;
-}
-
-.home-page .hero-content {
-    max-width: 680px;
-}
-
-.home-page .hero h1 {
-    max-width: 650px;
-}
-
-.home-page .hero .button {
-    padding: 0.8rem 1.2rem;
-    border-radius: 6px;
-    box-shadow: 0 3px 6px rgba(10, 31, 48, 0.2);
-}
-
-.home-page .hero .button:hover,
-.home-page .hero .button:focus {
-    box-shadow: 0 5px 10px rgba(10, 31, 48, 0.25);
-}
-
-.home-page .card {
-    display: flex;
-    min-height: 230px;
-    flex-direction: column;
-    padding: 1.6rem;
-    border-color: #cbd9df;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(23, 50, 77, 0.07);
-}
-
-.home-page .card h3 {
-    margin-bottom: 0.65rem;
-}
-
-.home-page .card .text-link {
-    margin-top: auto;
-    padding-top: 1.25rem;
-}
-
-.home-page .callout {
-    margin-top: 3.5rem;
-    padding: 2rem;
-    background: var(--light-blue);
-    border: 1px solid #cbdfe9;
-    border-radius: 10px;
-}
-
-.section,
-.page-content {
-    padding-top: 3.5rem;
-}
-
-.page-content {
-    padding-bottom: 3.5rem;
-}
-
-.page-intro {
-    max-width: 700px;
-}
-
-.about-page .page-intro {
-    max-width: 760px;
-    padding: 2rem;
-    background: var(--white);
-    border: 1px solid #cbd9df;
-    border-radius: 12px;
-    box-shadow: 0 5px 14px rgba(23, 50, 77, 0.07);
-}
-
-.about-page .page-intro p:last-child {
-    max-width: 650px;
-    margin-bottom: 0;
-    color: var(--muted);
-    font-size: 1.08rem;
-}
-
-.about-page .content-card {
-    padding: 1.7rem;
-    border-color: #cbd9df;
-    border-left: 4px solid var(--green);
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(23, 50, 77, 0.06);
-}
-
-.about-page .card {
-    min-height: 190px;
-    padding: 1.6rem;
-    border-color: #cbd9df;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(23, 50, 77, 0.06);
-}
-
-.about-page .card h3 {
-    margin-bottom: 0.65rem;
-}
-
-.about-page .callout {
-    margin-top: 3.5rem;
-    padding: 2rem;
-    background: var(--light-blue);
-    border: 1px solid #cbdfe9;
-    border-radius: 10px;
-}
-
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
 .card,
 .content-card,
 .form-section {
-    padding: 1.4rem;
+    padding: 1.35rem;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -257,7 +158,7 @@ h3 {
 }
 
 .callout {
-    padding-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
 }
 
 .callout p {
@@ -266,13 +167,15 @@ h3 {
 
 .button {
     display: inline-block;
-    padding: 0.7rem 1rem;
+    padding: 0.75rem 1rem;
     color: var(--white);
     background: var(--green);
     border: 2px solid var(--green);
-    border-radius: 5px;
+    border-radius: 6px;
     font: inherit;
     font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
     text-decoration: none;
     cursor: pointer;
 }
@@ -293,11 +196,114 @@ h3 {
     color: var(--navy);
 }
 
+/* Home page */
+.hero {
+    padding: 4rem 0;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+}
+
+.hero-content {
+    max-width: 680px;
+}
+
+.hero .eyebrow,
+.hero h1 {
+    color: var(--white);
+}
+
+.hero .eyebrow {
+    color: #c6efd3;
+}
+
+.hero h1 {
+    max-width: 650px;
+}
+
+.hero-text {
+    max-width: 610px;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.home-page .hero .button {
+    padding: 0.8rem 1.2rem;
+    box-shadow: 0 3px 6px rgba(10, 31, 48, 0.2);
+}
+
+.home-page .hero .button:hover,
+.home-page .hero .button:focus {
+    box-shadow: 0 5px 10px rgba(10, 31, 48, 0.25);
+}
+
+.home-page .card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-color: #cbd9df;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(23, 50, 77, 0.07);
+}
+
+.home-page .card h3 {
+    margin-bottom: 0.65rem;
+}
+
+.home-page .card .text-link {
+    margin-top: 1.25rem;
+}
+
+.home-page .callout,
+.about-page .callout {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: var(--light-blue);
+    border: 1px solid #cbdfe9;
+    border-radius: 10px;
+}
+
+/* About page */
+.about-page .page-intro {
+    max-width: 760px;
+    padding: 1.5rem;
+    background: var(--white);
+    border: 1px solid #cbd9df;
+    border-radius: 12px;
+    box-shadow: 0 5px 14px rgba(23, 50, 77, 0.07);
+}
+
+.about-page .page-intro p:last-child {
+    max-width: 650px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.about-page .content-card {
+    padding: 1.5rem;
+    border-color: #cbd9df;
+    border-left: 4px solid var(--green);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(23, 50, 77, 0.06);
+}
+
+.about-page .card {
+    padding: 1.5rem;
+    border-color: #cbd9df;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(23, 50, 77, 0.06);
+}
+
+.about-page .card h3 {
+    margin-bottom: 0.65rem;
+}
+
+/* Contact page */
 .form-section {
     max-width: 540px;
     margin-right: auto;
     margin-left: auto;
-    padding: 1.6rem;
+    padding: 1.25rem;
     border-color: #cbd9df;
     border-radius: 12px;
     box-shadow: 0 6px 16px rgba(23, 50, 77, 0.09);
@@ -324,14 +330,18 @@ h3 {
     border-radius: 6px;
     font: inherit;
     line-height: 1.4;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .form-section input:focus,
 .form-section textarea:focus {
-    outline: none;
     border-color: var(--blue);
     box-shadow: 0 0 0 3px #c9e5f3;
+}
+
+.form-section input:focus-visible,
+.form-section textarea:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
 }
 
 .form-section textarea {
@@ -342,16 +352,15 @@ h3 {
 .form-section .button {
     min-width: 145px;
     padding: 0.75rem 1.2rem;
-    border-radius: 6px;
     box-shadow: 0 2px 4px rgba(23, 50, 77, 0.15);
 }
 
 .form-section .button:hover,
 .form-section .button:focus {
     box-shadow: 0 4px 8px rgba(23, 50, 77, 0.2);
-    transform: translateY(-1px);
 }
 
+/* Footer */
 .site-footer {
     padding: 1.25rem 0;
     color: #dbe8ee;
@@ -363,51 +372,75 @@ h3 {
     margin: 0;
 }
 
-@media (max-width: 650px) {
+/* Wider screens: tablet and desktop enhancements. */
+@media (min-width: 768px) {
     .header-content {
-        flex-direction: column;
-        justify-content: center;
-        padding: 1rem 0;
+        flex-direction: row;
+        justify-content: space-between;
+        min-height: 72px;
+        padding: 0;
     }
 
-    .hero {
-        padding: 3.5rem 0;
+    .nav-list {
+        justify-content: flex-end;
+        gap: 0.4rem;
     }
 
-    .home-page .hero {
-        padding: 4rem 0;
+    .nav-list a {
+        padding: 0.45rem 0.7rem;
+    }
+
+    .section,
+    .page-content {
+        padding-top: 3.5rem;
+    }
+
+    .page-content {
+        padding-bottom: 3.5rem;
     }
 
     .card-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
+    .hero {
+        padding: 5.5rem 0;
+    }
+
+    .hero-text {
+        font-size: 1.1rem;
     }
 
     .home-page .card {
-        min-height: 0;
+        min-height: 230px;
+        padding: 1.6rem;
     }
 
-    .home-page .callout {
-        margin-top: 2.5rem;
-        padding: 1.5rem;
+    .home-page .card .text-link {
+        margin-top: auto;
     }
 
-    .about-page .page-intro,
-    .about-page .content-card,
-    .about-page .card,
+    .home-page .callout,
     .about-page .callout {
-        padding: 1.35rem;
+        margin-top: 3.5rem;
+        padding: 2rem;
+    }
+
+    .about-page .page-intro {
+        padding: 2rem;
+    }
+
+    .about-page .content-card,
+    .about-page .card {
+        padding: 1.7rem;
     }
 
     .about-page .card {
-        min-height: 0;
-    }
-
-    .about-page .callout {
-        margin-top: 2.5rem;
+        min-height: 190px;
     }
 
     .form-section {
-        max-width: none;
-        padding: 1.25rem;
+        padding: 1.6rem;
     }
 }
